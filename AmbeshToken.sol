@@ -25,4 +25,9 @@ contract AmbeshToken is ERC20 {
     function destroyTokens(uint256 amount) public {
         _burn(msg.sender, amount);
     }
+
+    function transfer(address recipient, uint256 amount) public override returns (bool) {
+        _transfer(_msgSender(), recipient, amount);
+        return true;
+    }
 }
