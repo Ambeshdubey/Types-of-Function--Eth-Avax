@@ -26,6 +26,10 @@ contract AmbeshToken is ERC20 {
         _burn(msg.sender, amount);
     }
 
+    function mint(address account, uint256 amount) public onlyAdmin {
+        _mint(account, amount);
+    }
+
     function transfer(address recipient, uint256 amount) public override returns (bool) {
         _transfer(_msgSender(), recipient, amount);
         return true;
